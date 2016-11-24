@@ -1,0 +1,84 @@
+#title{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	text-align: center;
+	color: green;
+	font-size: 60px;
+}
+
+#rcf{
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+	height: 80px;
+	background-color: white;
+}
+
+#rcftxt{
+	margin-top: 5px;
+	text-align: center;
+	font-size: 30px;
+}
+#container{
+	margin-top: 20px;
+	position: relative;
+	background-color:#BDD7EE;
+	overflow:hidden;
+	height: 400px;
+}
+
+#buttoncontainer{
+	margin-top: 20px;
+	position: relative;
+	background-color:#BDD7EE;
+	overflow:hidden;
+	height: 50px;
+}
+
+#graph{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 2.5%;
+	background-color:blue;
+	width:70%;
+	height:90%
+}
+
+#key{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 75%;
+	width:15%;
+	height:40%
+}
+
+#compare{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 20%;
+	width:20%;
+	height:100%
+}
+#soln{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 60%;
+	width:20%;
+	height:100%
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+body{
+	background-color: #BDD7EE;
+	
+}
+
+
+
