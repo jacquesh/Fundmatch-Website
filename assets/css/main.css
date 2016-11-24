@@ -2666,7 +2666,7 @@
 	}
 
 	header.major {
-		margin-bottom: 3em;
+		margin-bottom: 0;
 	}
 
 		header.major h2 {
@@ -2678,7 +2678,7 @@
 				content: '';
 				width: 3.25em;
 				height: 2px;
-				margin: 0.7em 0 1em 0;
+				margin: 0.5em 0 0 0;
 				border-radius: 2px;
 			}
 
@@ -3562,10 +3562,10 @@
 
 		#main header.major h2:after {
 			background-color: #dddddd;
-			background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-			background-image: -webkit-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-			background-image: -ms-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
+			background-image: -moz-linear-gradient(90deg, #4D6B91, #65BC95, #65B55E);
+			background-image: -webkit-linear-gradient(90deg, #4D6B91, #65BC95, #65B55E);
+			background-image: -ms-linear-gradient(90deg, #4D6B91, #65BC95, #65B55E);
+			background-image: linear-gradient(90deg, #4D6B91, #65BC95, #65B55E);
 		}
 
 		#main table tbody tr {
@@ -3597,7 +3597,7 @@
 		}
 
 		#main > .main {
-			padding: 5em 5em 3em 5em ;
+			padding: 2em 5em 2em 5em ;
 			border-top: solid 1px #dddddd;
 		}
 
