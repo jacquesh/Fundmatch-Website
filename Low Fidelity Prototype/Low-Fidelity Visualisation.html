@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Javascript </title>
+		<link href = "main.css" rel = "stylesheet" type = "text/css" />
+		<link href = "tooltip.css" rel = "stylesheet" type = "text/css" />
+		<link href = "modal.css" rel = "stylesheet" type = "text/css" />
+		<script type="text/javascript" src="load.js" ></script>
+	</head>
+	<body style= "text-align: center;" onload = "showValue(366)">
+	<!-- Header containing key, Title and filters -->
+	<div style="width: 100%; overflow: hidden;">
+		<div style = "padding:0; margin:0; float: left">
+		<img src = "Key.png" style = "width: 35px; height: 35px; padding:0; margin:0;" onclick="showModal('Keypage.png')">
+		</div>
+		<div><p id="title"> Solution 2.03 Summary </p></div>
+		<div style = "float: right; position: absolute; padding:0; margin:0; top: 8px; right:8px">
+			<form action="">
+				<input id = "cbTot" type="checkbox" value="Tot_Amount"  onchange="hideTot(this.checked)"> <b>$</b>
+				<input id = "cbInterest" type="checkbox" value="Interest" onchange="hideInt(this.checked)"> <b>%</b>
+				<input id = "cbTimers" type="checkbox" value="Tenor" onchange = "hideTimers(this.checked)"> <img src = "TenorToggle.png" style = "width: 15px; height: 15px;">
+				<input id = "cbIcons" type="checkbox" value="Icons" onclick = "hideIcons(this.checked)"> <img src = "IconToggle.png" style = "width: 15px; height: 15px;" >
+				<input type="checkbox" value="Tri_icons"> <img src = "TriToggle.png" style = "width: 15px; height: 15px;">
+			</form>
+		</div>
+	</div>
+	
+	<!-- Background image and clickable components-->
+	<div style = "position: relative; text-align: center; display: inline-block; ">
+		<img id = "bpic" src="D3_S2.png"/>
+		<img id = "Icons" style = "position: absolute; top: 5%; left: 5.9%; width: 94%; display: none;" src="Icons (2).png">
+		<img id = "Timers" style = " position: absolute; top: 5.5%; left: 0%; width: 100%; display: none;" src="Timers.png">
+		<div id = "tooltipcontainer">
+			<!--requirements-->
+			<div class = "tooltip" style="position: absolute; top: 72.7%; left: 27.5%; width: 3,8%">
+				<img id = "30" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details30.png')"/>
+					<span class="tooltiptext">ID: 30<br />Segment: Lannister<br />Start Date:2016/01/01<br />Tenor: 12<br />Amount: 100<br />Tier: Senior<br />Purpose: Weddings<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 69%; left: 11.8%; width: 3,8%">
+				<img id = "105" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details105.png')"/>
+					<span class="tooltiptext">ID: 105<br />Segment: Tyrell<br />Start Date:2016/04/15<br />Tenor: 36<br />Amount: 60<br />Tier: 3<br />Purpose: Bridge Building<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 60%; left: 14.5%; width: 3,8%">
+				<img id = "3" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details3.png')"/>
+					<span class="tooltiptext">ID: 3<br />Segment: Stark<br />Start Date:2016/03/01<br />Tenor: 104<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 60%; left: 18%; width: 3,8%">
+				<img id = "1" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details1.png')"/>
+					<span class="tooltiptext">ID: 1<br />Segment: Stark<br />Start Date:2016/01/01<br />Tenor: 60<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 77%; left: 14.5%; width: 3,8%">
+				<img id = "13" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details13.png')"/>
+					<span class="tooltiptext">ID: 13<br />Segment: Greyjoy<br />Start Date:2016/03/01<br />Tenor: 60<br />Amount: 207<br />Tier: Senior<br />Purpose: Ships<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 63.2%; left: 22%; width: 3,8%">
+				<img id = "10" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details10.png')"/>
+					<span class="tooltiptext">ID: 10<br />Segment: Stark<br />Start Date:2016/10/01<br />Tenor: 97<br />Amount: 25<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 60%; left: 25.5%; width: 3,8%">
+				<img id = "4" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details4.png')"/>
+					<span class="tooltiptext">ID: 4<br />Segment: Stark<br />Start Date:2016/04/01<br />Tenor: 103<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 60%; left: 29.7%; width: 3,8%">
+				<img id = "2" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details2.png')"/>
+					<span class="tooltiptext">ID: 2<br />Segment: Stark<br />Start Date:2016/02/01<br />Tenor: 60<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div><div class = "tooltip" style="position: absolute; top: 60%; left: 33.7%; width: 3,8%">
+				<img id = "5" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details5.png')"/>
+					<span class="tooltiptext">ID: 5<br />Segment: Stark<br />Start Date:2016/05/01<br />Tenor: 102<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 60%; left: 37.5%; width: 3,8%">
+				<img id = "6" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details6.png')"/>
+					<span class="tooltiptext">ID: 6<br />Segment: Stark<br />Start Date:2016/06/01<br />Tenor: 101<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 60%; left: 41.3%; width: 3,8%">
+				<img id = "7" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details7.png')"/>
+					<span class="tooltiptext">ID: 7<br />Segment: Stark<br />Start Date:2016/07/01<br />Tenor: 100<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 60%; left: 45%; width: 3,8%">
+				<img id = "8" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details8.png')"/>
+					<span class="tooltiptext">ID: 8<br />Segment: Stark<br />Start Date:2016/08/01<br />Tenor: 99<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div><div class = "tooltip" style="position: absolute; top: 60%; left: 49.2%; width: 3,8%">
+				<img id = "9" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details9.png')"/>
+					<span class="tooltiptext">ID: 9<br />Segment: Stark<br />Start Date:2016/09/01<br />Tenor: 98<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 60%; left: 53.3%; width: 3,8%">
+				<img id = "11" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details11.png')"/>
+					<span class="tooltiptext">ID: 11<br />Segment: Stark<br />Start Date:2016/11/01<br />Tenor: 96<br />Amount: 15<br />Tier: Mezzanine<br />Purpose: Support Night's Watch<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 77%; left: 37.5%; width: 3,8%">
+				<img id = "31" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details31.png')"/>
+					<span class="tooltiptext">ID: 31<br />Segment: Lannister<br />Start Date:2016/02/01<br />Tenor: 36<br />Amount: 200<br />Tier: Tier 2<br />Purpose: Consultants<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 77%; left: 42%; width: 3,8%">
+				<img id = "37" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details37.png')"/>
+					<span class="tooltiptext">ID: 37<br />Segment: Lannister<br />Start Date:2016/12/01<br />Tenor: 36<br />Amount: 170<br />Tier: Senior<br />Purpose: Weddings<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 72.7%; left: 47.2%; width: 3,8%">
+				<img id = "27" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details27.png')"/>
+					<span class="tooltiptext">ID: 27<br />Segment: Tyrell<br />Start Date:2016/12/01<br />Tenor: 12<br />Amount: 96<br />Tier: Senior<br />Purpose: Invade Dorne and Clothing<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 72.7%; left: 52.5%; width: 3,8%">
+				<img id = "35" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details35.png')"/>
+					<span class="tooltiptext">ID: 35<br />Segment: Lannister<br />Start Date:2016/09/01<br />Tenor: 36<br />Amount: 80<br />Tier: Senior<br />Purpose: Weddings<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 69.2%; left: 56.3%; width: 3,8%">
+				<img id = "106" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details106.png')"/>
+					<span class="tooltiptext">ID: 106<br />Segment: Tyrell<br />Start Date:2016/04/15<br />Tenor: 36<br />Amount: 65<br />Tier: Tier 3<br />Purpose: Bridge Building<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 68.2%; left: 64.2%; width: 3,8%">
+				<img id = "32" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details32.png')"/>
+					<span class="tooltiptext">ID: 32<br />Segment: Lannister<br />Start Date:2016/04/01<br />Tenor: 36<br />Amount: 50<br />Tier: Senior<br />Purpose: Weddings<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 68.2%; left: 68.2%; width: 3,8%">
+				<img id = "104" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details104.png')"/>
+					<span class="tooltiptext">ID: 104<br />Segment: Tyrell<br />Start Date:2016/04/15<br />Tenor: 36<br />Amount: 50<br />Tier: Tier 3<br />Purpose: Bridge Building<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 68.2%; left: 78.2%; width: 3,8%">
+				<img id = "14" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details14.png')"/>
+					<span class="tooltiptext">ID: 14<br />Segment: Greyjoy<br />Start Date:2016/06/01<br />Tenor: 60<br />Amount: 50<br />Tier: Senior<br />Purpose: Ships<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 74.7%; left: 71.2%; width: 3,8%">
+				<img id = "36" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details36.png')"/>
+					<span class="tooltiptext">ID: 36<br />Segment: Lannister<br />Start Date:2016/10/01<br />Tenor: 36<br />Amount: 140<br />Tier: Senior<br />Purpose: Weddings<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 74.4%; left: 75%; width: 3,8%">
+				<img id = "34" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details34.png')"/>
+					<span class="tooltiptext">ID: 34<br />Segment: Lannister<br />Start Date:2016/07/01<br />Tenor: 36<br />Amount: 130<br />Tier: Senior<br />Purpose: Weddings<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 72.7%; left: 90.6%; width: 3,8%">
+				<img id = "107" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details107.png')"/>
+					<span class="tooltiptext">ID: 107<br />Segment: Tyrell<br />Start Date:2016/06/01<br />Tenor: 36<br />Amount: 100<br />Tier: Tier 3<br />Purpose: Bridge Building<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 75%; left: 80.8%; width: 3,8%">
+				<img id = "33" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details33.png')"/>
+					<span class="tooltiptext">ID: 33<br />Segment: Lannister<br />Start Date:2016/06/01<br />Tenor: 36<br />Amount: 150<br />Tier: Tier 2<br />Purpose: Consultants<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 80%; left: 84.2%; width: 3,8%">
+				<img id = "21" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details21.png')"/>
+					<span class="tooltiptext">ID: 21<br />Segment: Tyrell<br />Start Date:2016/06/01<br />Tenor: 12<br />Amount: 300<br />Tier: Senior<br />Purpose: Invade Dorne<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 81%; left: 87.8%; width: 3,8%">
+				<img id = "108" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details108.png')"/>
+					<span class="tooltiptext">ID: 108<br />Segment: Tyrell<br />Start Date:2016/06/21<br />Tenor: 36<br />Amount: 400<br />Tier: Tier 3<br />Purpose: Bridge Building<br />Tax Class: UPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 83.6%; left: 93.7%; width: 3,8%">
+				<img id = "26" src="Tri.png" style = "opacity: 0;" onclick="showModal('Details26.png')"/>
+					<span class="tooltiptext">ID: 26<br />Segment: Tyrell<br />Start Date:2016/12/01<br />Tenor: 12<br />Amount: 600<br />Tier: Senior<br />Purpose: Invade Dorne<br />Tax Class: none
+					</span>
+			</div>
+			<!--sources-->
+			<div class = "tooltip" style="position: absolute; top: 46.5%; left: 11.6%; width:51%; height: 5.5%; " onclick="showModal('SrcD/DetailsB1.png')">
+				<img id = "B1" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: B1<br />Segment: IronBankFunds<br />Start Date:2016/01/01<br />Name: Money Market<br />Total Allocatable Amount: 7513,8<br />Interest Rate: 11%<br />Tax Class: none
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 45.7%; left: 81.6%; width:10%; height: 5.5%;" onclick="showModal('SrcD/Details1.png')">
+				<img id = "1" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 1<br />Segment: Tully<br />Start Date:2016/06/01<br />Tenor: 60<br />Amount: 1200<br />Source Type: Tully_CPI<br />Source Type Category: other<br /> Interest Rate: 10%<br />Tax Class: UPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 35.7%; left: 26%; width:10%; height: 5.5%; " onclick="showModal('SrcD/Details77.png')">
+				<img id = "77" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 77<br />Segment: Bolton<br />Start Date:2015/12/01<br />Tenor: 24<br />Amount: 300<br />Source Type: Tully_NPA<br />Source Type Category: other<br /> Interest Rate: 11%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 35.7%; left: 12.6%; width:6.5%; height: 5.5%; " onclick="showModal('SrcD/Details42.png')">
+				<img id = "42" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 42<br />Segment: Bolton<br />Start Date:2016/02/01<br />Tenor: 60<br />Amount: 100<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 35.7%; left: 40.1%; width:6.5%; height: 5.5%; " onclick="showModal('SrcD/Details45.png')">
+				<img id = "45" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 45<br />Segment: Bolton<br />Start Date:2016/06/01<br />Tenor: 60<br />Amount: 200<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 35.7%; left: 54.4%; width:3.25%; height: 5.5%; " onclick="showModal('SrcD/Details48.png')">
+				<img id = "48" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 48<br />Segment: Bolton<br />Start Date:2016/09/01<br />Tenor: 60<br />Amount: 100<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 35.7%; left: 71.7%; width:6.5%; height: 5.5%; " onclick="showModal('SrcD/Details46.png')">
+				<img id = "46" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 46<br />Segment: Bolton<br />Start Date:2016/07/01<br />Tenor: 60<br />Amount: 200<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 35.5%; left: 84.7%; width:6.5%; height: 5.5%; " onclick="showModal('SrcD/Details50.png')">
+				<img id = "50" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 50<br />Segment: Bolton<br />Start Date:2016/11/01<br />Tenor: 60<br />Amount: 200<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 25%; left: 19%; width:3.25%; height: 5.5%; " onclick="showModal('SrcD/Details39.png')">
+				<img id = "39" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 39<br />Segment: Bolton<br />Start Date:2016/01/01<br />Tenor: 60<br />Amount: 100<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 25%; left: 57.4%; width:3.25%; height: 5.5%; " onclick="showModal('SrcD/Details38.png')">
+				<img id = "38" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 38<br />Segment: Bolton<br />Start Date:2015/11/01<br />Tenor: 60<br />Amount: 100<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 25%; left: 33.7%; width:6.5%; height: 5.5%; " onclick="showModal('SrcD/Details76.png')">
+				<img id = "76" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 76<br />Segment: Bolton<br />Start Date:2015/11/02<br />Tenor: 40<br />Amount: 200<br />Source Type: Tully_NPA<br />Source Type Category: other<br /> Interest Rate: 11%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 25%; left: 84.9%; width:6.5%; height: 5.5%; " onclick="showModal('SrcD/Details49.png')">
+				<img id = "49" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextsrc">ID: 49<br />Segment: Bolton<br />Start Date:2016/10/01<br />Tenor: 60<br />Amount: 200<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 14.9%; left: 12.4%; width:3.25%; height: 5.5%; " onclick="showModal('SrcD/Details40.png')">
+				<img id = "40" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextalt">ID: 40<br />Segment: Bolton<br />Start Date:2016/01/01<br />Tenor: 60<br />Amount: 100<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 14.8%; left: 29.5%; width:3.25%; height: 5.5%; " onclick="showModal('SrcD/Details41.png')">
+				<img id = "41" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextalt">ID: 41<br />Segment: Bolton<br />Start Date:2016/02/01<br />Tenor: 60<br />Amount: 100<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 14.9%; left: 46.6%; width:3.25%; height: 5.5%;" onclick="showModal('SrcD/Details47.png')">
+				<img id = "47" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextalt">ID: 47<br />Segment: Bolton<br />Start Date:2016/08/01<br />Tenor: 60<br />Amount: 100<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 14.9%; left: 64.9%; width:3.25%; height: 5.5%; " onclick="showModal('SrcD/Details43.png')">
+				<img id = "43" src="block.png" style = "opacity: 0; ">
+					<span class="tooltiptextalt">ID: 43<br />Segment: Bolton<br />Start Date:2016/04/01<br />Tenor: 60<br />Amount: 100<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 14.9%; left: 84.7%; width:6.5%; height: 5.5%; " onclick="showModal('SrcD/Details51.png')">
+				<img id = "51" src="block.png" style = "opacity: 0; " />
+					<span class="tooltiptextalt">ID: 51<br />Segment: Bolton<br />Start Date:2016/12/01<br />Tenor: 60<br />Amount: 200<br />Source Type: Sheep<br />Source Type Category: Product<br /> Interest Rate: 8,5%<br />Tax Class: IPF
+					</span>
+			</div>
+			<div class = "tooltip" style="position: absolute; top: 4.5%; left: 15.7%; width:5%; height: 5.5%; "  onclick="showModal('SrcD/Details16.png')">
+				<img id = "16" src="block.png" style = "opacity: 0; "/>
+					<span class="tooltiptextalt">ID: 16<br />Segment: Bolton<br />Start Date:2016/03/01<br />Tenor: 60<br />Amount: 7<br />Source Type: Coal<br />Source Type Category: Product<br /> Interest Rate: 9%<br />Tax Class: UPF
+					</span>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Timeline -->
+	<div style = "text-align: center;">
+			<input id = "slider" type="range" min="0" max="1095" value = "366" style = "position: relative; width: 80%; " onchange="showValue(this.value)"/>
+	</div>
+	<span id="range" style = "position: relative; ; left: -40%;">1/1/2017</span>
+	
+	<!-- Modal -->
+	<div id="myModal" class="modal">
+		<span class="close">x</span>
+		 <img class="modal-content" id="img30">
+	</div>
+	
+	<!-- Javascript -->
+	<script type="text/javascript">
+		function showValue(newValue)
+		{
+			if (newValue>639){newValue=731;
+				document.getElementById("tooltipcontainer").style.pointerEvents = "none";
+				hideTimers(false);
+				hideInt(false);
+				hideIcons(false);
+				document.getElementById('cbTimers').checked = false;
+				document.getElementById('cbInterest').checked = false;
+				document.getElementById('cbIcons').checked = false;
+				document.getElementById('cbTot').checked = true;
+				document.getElementById('bpic').src = "D3_T1.png"; 
+		}
+			else{
+				if (newValue>456){newValue=517;}
+				else {newValue=366; document.getElementById('bpic').src = "D3_S2.png"; document.getElementById("tooltipcontainer").style.pointerEvents = "auto";}
+			}
+			
+			document.getElementById("slider").value=newValue;
+			var date = new Date(2016, 00, 01);
+			date.setDate(date.getDate()+ +newValue);
+			var dd = date.getDate();
+			var mm = date.getMonth()+1;
+			var y = date.getFullYear()
+			document.getElementById("range").innerHTML=dd + '/'+ mm + '/'+ y;
+			document.getElementById("range").style.left = (+newValue/1095*80-40)+'%';
+		}
+		function showModal(imageInput){
+			var modal = document.getElementById('myModal');
+			var modalImg = document.getElementById("img30");
+			modal.style.display = "block";
+			modalImg.src = imageInput;
+			
+			var span = document.getElementsByClassName("close")[0];
+
+			span.onclick = function() { 
+				modal.style.display = "none";
+			}
+		}
+		function hideIcons(status){
+		if(status){
+			document.getElementById('Icons').style.display = "block"; 
+			hideTimers(false);
+			hideInt(false);
+			document.getElementById('cbTimers').checked = false;
+			document.getElementById('cbInterest').checked = false;}
+			else {
+			document.getElementById('Icons').style.display = "none";
+			}
+		}
+		function hideTimers(status){
+		if(status){
+			document.getElementById('Timers').style.display = "block";
+			hideIcons(false);
+			hideInt(false);
+			document.getElementById('cbIcons').checked = false;
+			document.getElementById('cbInterest').checked = false;}
+			else {
+			document.getElementById('Timers').style.display = "none";
+			}
+		}
+		function hideTot(status){
+		if(status){
+			document.getElementById('bpic').src = "D3_S2.png";
+			}
+			else {
+			document.getElementById('bpic').src = "D3_FA.png";
+			document.getElementById('cbInterest').checked = false;
+			}
+		}
+		function hideInt(status){
+		if(!status){
+			if (document.getElementById('cbTot').checked){
+			document.getElementById('bpic').src = "D3_S2.png";}
+			else{document.getElementById('bpic').src = "D3_FA.png";}
+			}
+			else {
+			document.getElementById('bpic').src = "D3_FI.png";
+			hideTimers(false);
+			hideIcons(false);
+			document.getElementById('cbTot').checked = true;
+			document.getElementById('cbIcons').checked = false;
+			document.getElementById('cbTimers').checked = false;
+			}
+		}
+		var img = document.getElementById('bpic'); 
+		//or however you get a handle to the IMG
+		document.getElementById('log').innerHTML="hey";
+		//var width = img.clientWidth;
+		//var height = img.clientHeight;
+		
+	</script>
+	<p id="log"></p>
+	</body>
+	
+</html>
