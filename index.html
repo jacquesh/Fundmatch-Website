@@ -1,99 +1,157 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>FundMatch</title>
-    <link rel="stylesheet" href="css/index.css">
-</head>
-<body>
-    <header>
-        <h1>FundMatch: Corporate fund matching optimization and visualization</h1>
-    </header>
-    <div id="content">
-        <div class="segment" id="intro">
-            <div class="sub-header">Introduction</div>
-            <p>
-            Many large companies are composed of a number of smaller sub-companies, each with
-            their own levels of income and expense. These sub-companies can be categorized by
-            their profitability, either generating excess income (a funding source) or being in
-            need of outside income (a funding sink). Ordinarily, companies that require extra income
-            would need to request funding from an external source such as a bank. Being part of
-            a larger company, however, allows funds to be easily loaned between sources and sinks.
-            Currently, sources are matched to sinks manually by a company employee. Given the high
-            level of complexity of the problem and the large space of possible solutions,
-            manually created matches are liable to be sub-optimal. Having sub-optimal matches
-            increases the total amount of funding required to satisfy all requirements, causing
-            the company to rely on third-party funding which is provided at higher interest rates,
-            costing the company money. In addition, manually matching sources to sinks requires a
-            significant amount of employee time which could otherwise be spent gaining value for the
-            company elsewhere.
-            </p>
-        </div>
-		<div class = "segment" id = "goals">
-			<div class="sub-header">Project Goals</div>
-			<div class="sub-sub-header">Optimization Goals</div>
-			
-			<div class="sub-sub-header">Visulaisation Goals</div>
-			<p>
-			The goal of the visualisation portion of the project is to create a interactive visualisation that will help users understand the allocation data.
-			We aim to use a UCD (User-centered design) process to design a visualisation that answers a number of visual queries specified by Old Mutual Employees.
-			By allowing users to easily answer these visual queries we allow them to understand the data more quickly and completely than would be possible with purely textual tools.<br />
-			The visual queries specified were:
-			</p>
-			<figure>
-				<img id = "vQueries" src="vis_queries.png" style = "scale: 55%"/>
-				<figcaption>
-					Visual queries can be split into two meta queries: 'What is the solution?' and 'Is the solution good?' Within these groups queries are listed in order of importance.
-				</figcaption>
-			</figure>
-		</div>
-		<div class = "segment" id = "results">
-			<div class="sub-header">Results</div>
-			<div class="sub-sub-header">Optimization Results</div>
-			
-			<div class="sub-sub-header">Visulaisation Results</div>
-			<p>
-			In the initial design cycle users where enthusiastic about the designs presented. This indicated
-			that the initial data gathering and use of the design principles was successful. Although the initial
-			design was well received there were still a number of issues with it.</p><p>
-			The pilot tests, conducted by
-			HCI Honours students at UCT for both the paper-prototype and highﬁdelity prototype were helpful,
-			especially to identify weaknesses in the evaluation procedure. For the paper proto-type particularly
-			the initial evaluation procedure was improved greatly by using hard copies of the images and having
-			the visual queries present for reference at all times. Having a variety of participants in the overall
-			evaluation process allowed us to pick up on more weaknesses than an evaluation procedure with a single
-			specific group of participants.</p><p>
-			Expert end user testing allowed for the visual queries to be more
-			precisely deﬁned and for features that were not well suited to the speciﬁc use cases encountered by
-			end users to be improved. Progressing from the paper-prototype to the low-ﬁdelity prototype a number
-			of improvements were suggested and implemented.	Incorporating end users in the design process allowed for us to create a visualisation that fulﬁlled their goals.</p><p>
-			However, there were some issues with this testing. For example There is certainly an element of learning in the testing process and users would 
-			possibly pick up on visual cues explained during earlier evaluations that new users would not.
-			The UCD process resulted in a successful design but it required a substantial amount of time, planning and management to arrange evaluations and process feedback.
-			Unfortunately, this meant that the creation of a high ﬁdelity prototype was incomplete. This was partly due to the unexpected complexity of developing an interactive visual system and partly
-			due to the UCD process taking more time than expected. </p><p>
-			Fortunoately, the main aspects of interactivity and automated construction of the visualisation from a JSON format were completed.
-			Users clearly felt that this was an improvement over the initial design and that it was a viable replacement or complement to existing tools.
-			There is still room for improvement of both the design and implementation as well as an opportunity for a number of similar visualisations to fulﬁl the same role for diﬀerent tasks in the ﬁnancial sector.
-			</p>
-		</div>
-        <div class="segment" id="proposal">
-            <div class="sub-header">Project Proposal</div>
-            <p>
-            You can download our full project proposal <a href="Fundmatch-Proposal.pdf">here</a>. The proposal includes a
-            detailed description of the proposed project. A timeline is also included which shows the
-            timeline that we expect to follow.
-            </p>
-        </div>
-        <div class="segment" id="teamwork">
-            <div class="sub-header">Work Split</div>
-            <p>
-                <ul>
-                    <li>Jacques Heunis: Optimization</li><br><br>
-                    <li>Timothy Gwynn: Visualization</li>
-                </ul>
-            </p>
-        </div>
-    </div>
-</body>
+	<head>
+		<title>FundMatch</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/logo.svg" alt="" /></span>
+						<h1>FundMatch</h1>
+						<p>Optimization and Visualization of Corporate Funding Allocations</p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#goals">Project Goals</a></li>
+							<li><a href="#results">Results</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main special">
+                                <header class="major">
+                                    <h2>Introduction</h2>
+                                </header>
+                                <p class="content">
+                                Many large companies are composed of a number of smaller sub-companies, each with their own levels of income and expense. These sub-companies can be categorized by their profitability, either generating excess income (a funding source) or being in need of outside income (a funding sink). Ordinarily, companies that require extra income would need to request funding from an external source such as a bank. Being part of a larger company, however, allows funds to be easily loaned between sources and sinks. Currently, sources are matched to sinks manually by a company employee. Given the high level of complexity of the problem and the large space of possible solutions, manually created matches are liable to be sub-optimal. Having sub-optimal matches increases the total amount of funding required to satisfy all requirements, causing the company to rely on third-party funding which is provided at higher interest rates, costing the company money. In addition, manually matching sources to sinks requires a significant amount of employee time which could otherwise be spent gaining value for the company elsewhere.
+                                </p>
+								
+							</section>
+
+						<!-- First Section -->
+							<section id="goals" class="main special">
+								<header class="major">
+									<h2>Project Goals</h2>
+								</header>
+                                <h3>Optimization</h3>
+                                <p>
+                                    The goal of the optimization portion of the project is to find a way of creating a set of allocations which satisfies all funding requirements at the lowest total cost.
+                                    We investigate only the use of metaheuristic approaches, specifically considering Genetic Algorithms and Particle Swarm Optimization.<br/>
+                                    We also implement a greedy heuristic, which is based on a description of the manual process that is currently in use. We use this as a baseline to compare the metaheuristics against.
+                                    The main questions that we aim to answer are whether or not our metaheuristics perform better than the existing manual or heuristic approaches, and which of them performs the best.
+                                </p>
+                                <h3>Visualization</h3>
+                                <p>
+                                    The goal of the visualisation portion of the project is to create a interactive visualisation that will help users understand the allocation data.
+                                    We aim to use a UCD (User-centered design) process to design a visualisation that answers a number of visual queries specified by Old Mutual Employees.
+                                    By allowing users to easily answer these visual queries we allow them to understand the data more quickly and completely than would be possible with purely textual tools.<br/>
+                                    The visual queries specified were:
+                                    <figure>
+                                        <img id = "vQueries" src="images/vis_queries.png" style = "scale: 55%"/>
+                                        <figcaption>
+                                            Visual queries can be split into two meta queries: 'What is the solution?' and 'Is the solution good?' Within these groups queries are listed in order of importance.
+                                        </figcaption>
+                                    </figure>
+                                </p>
+							</section>
+
+						<!-- Second Section -->
+							<section id="results" class="main special">
+								<header class="major">
+									<h2>Results</h2>
+								</header>
+								<ul class="statistics">
+									<li class="style1">
+										<span class="icon fa-code-fork"></span>
+										<strong>5,120</strong> Etiam
+									</li>
+									<li class="style2">
+										<span class="icon fa-folder-open-o"></span>
+										<strong>8,192</strong> Magna
+									</li>
+									<li class="style3">
+										<span class="icon fa-signal"></span>
+										<strong>2,048</strong> Tempus
+									</li>
+									<li class="style4">
+										<span class="icon fa-laptop"></span>
+										<strong>4,096</strong> Aliquam
+									</li>
+									<li class="style5">
+										<span class="icon fa-diamond"></span>
+										<strong>1,024</strong> Nullam
+									</li>
+								</ul>
+                                <h3>Optimization</h3>
+
+                                <h3>Visualization</h3>
+                                <p>
+								In the initial design cycle users where enthusiastic about the designs presented. This indicated
+                                that the initial data gathering and use of the design principles was successful. Although the initial
+                                design was well received there were still a number of issues with it.</p><p>
+                                The pilot tests, conducted by
+                                HCI Honours students at UCT for both the paper-prototype and highﬁdelity prototype were helpful,
+                                especially to identify weaknesses in the evaluation procedure. For the paper proto-type particularly
+                                the initial evaluation procedure was improved greatly by using hard copies of the images and having
+                                the visual queries present for reference at all times. Having a variety of participants in the overall
+                                evaluation process allowed us to pick up on more weaknesses than an evaluation procedure with a single
+                                specific group of participants.</p><p>
+                                Expert end user testing allowed for the visual queries to be more
+                                precisely deﬁned and for features that were not well suited to the speciﬁc use cases encountered by
+                                end users to be improved. Progressing from the paper-prototype to the low-ﬁdelity prototype a number
+                                of improvements were suggested and implemented. Incorporating end users in the design process allowed for us to create a visualisation that fulﬁlled their goals.</p><p>
+                                However, there were some issues with this testing. For example There is certainly an element of learning in the testing process and users would 
+                                possibly pick up on visual cues explained during earlier evaluations that new users would not.
+                                The UCD process resulted in a successful design but it required a substantial amount of time, planning and management to arrange evaluations and process feedback.
+                                Unfortunately, this meant that the creation of a high ﬁdelity prototype was incomplete. This was partly due to the unexpected complexity of developing an interactive visual system and partly
+                                due to the UCD process taking more time than expected. </p><p>
+                                Fortunoately, the main aspects of interactivity and automated construction of the visualisation from a JSON format were completed.
+                                Users clearly felt that this was an improvement over the initial design and that it was a viable replacement or complement to existing tools.
+                                There is still room for improvement of both the design and implementation as well as an opportunity for a number of similar visualisations to fulﬁl the same role for diﬀerent tasks in the ﬁnancial sector.
+								<footer class="major">
+									<ul class="actions">
+										<li><a href="generic.html" class="button">Optimization Paper</a></li>
+                                        <li><a href="generic.html" class="button">Visualization Paper</a></li>
+									</ul>
+								</footer>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">Created using the "Stellar" theme by <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
