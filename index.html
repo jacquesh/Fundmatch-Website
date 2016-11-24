@@ -61,6 +61,8 @@
                                     We also implement a greedy heuristic, which is based on a description of the manual process that is currently in use. We use this as a baseline to compare the metaheuristics against.
                                     The main questions that we aim to answer are whether or not our metaheuristics perform better than the existing manual or heuristic approaches, and which of them performs the best.
                                 </p>
+
+                                <hr class="topic-separate">
                                 <h3>Visualization</h3>
                                 <p>
                                     The goal of the visualisation portion of the project is to create a interactive visualisation that will help users understand the allocation data.
@@ -68,7 +70,7 @@
                                     By allowing users to easily answer these visual queries we allow them to understand the data more quickly and completely than would be possible with purely textual tools.<br/>
                                     The visual queries specified were:
                                     <figure>
-                                        <img id = "vQueries" src="images/vis_queries.png" style = "scale: 55%"/>
+                                        <img id = "vQueries" src="images/vis_queries.png"/>
                                         <figcaption>
                                             Visual queries can be split into two meta queries: 'What is the solution?' and 'Is the solution good?' Within these groups queries are listed in order of importance.
                                         </figcaption>
@@ -82,7 +84,23 @@
 									<h2>Results</h2>
 								</header>
                                 <h3>Optimization</h3>
+                                <p>
+                                Of the three approaches we tested, PSO consistently had the worst performance. On a real-world dataset, it failed to find a solution with lower cost than the manually-computed one. On datasets whose size matches that of a typical real-world instance of the problem, PSO tended towards the worst-case solution of making no allocations and satisfying all requirements from the external source of funding.
+                                </p>
+                                <figure>
+                                    <img id = "vQueries" src="images/opt-fitness-all.png"/>
+                                </figure>
+                                <p>
+                                The GA performed well overall, giving solutions which were better on average than that of the heuristic for half of the tested datasets. On the real-world dataset, the GA produced solutions which were significantly better than that of the heuristic and the manual solution. The cost of solutions given by the GA is fairly stable and varies within a relatively small range.
+                                </p>
+                                <figure>
+                                    <img id = "vQueries" src="images/opt-fitness-rwds.png"/>
+                                </figure>
+                                <p>
+                                Solutions given by the GA tended to have a very high number of allocations when compared to those given by the heuristic or PSO. This could affect the practicality of using these solutions in practice. Another factor is the run time which was far greater for the GA than PSO, but was still well within the bounds of what could reasonably be used in practice.
+                                </p>
 
+                                <hr class="topic-separate">
                                 <h3>Visualization</h3>
                                 <p>
 								In the initial design cycle users where enthusiastic about the designs presented. This indicated
